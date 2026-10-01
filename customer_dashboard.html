@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal Dashboard | Stratum Consulting</title>
+  <meta name="description" content="Executive Customer Dashboard for corporate clients to access engagement strategy deliverables, report downloads, and direct partner briefings.">
+  <link rel="icon" type="image/webp" href="assets/images/logo_0103.webp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+      background: var(--bg-dark);
+    }
+    .sidebar {
+      background: var(--bg-surface-elevated);
+      border-right: 1px solid var(--border-light);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .sidebar-menu {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0 0 0;
+    }
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: var(--radius-md);
+      margin-bottom: 8px;
+      transition: var(--transition-fast);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .sidebar-link:hover, .sidebar-link.active {
+      background: rgba(229, 160, 13, 0.15);
+      color: var(--accent-gold);
+      border: 1px solid var(--border-active);
+    }
+    .dashboard-content {
+      padding: 40px;
+      overflow-y: auto;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+    .milestone-card {
+      position: relative;
+      padding: 20px 20px 20px 48px;
+      background: rgba(14, 21, 37, 0.7);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+    }
+    .milestone-card::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 24px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--text-dim);
+    }
+    .milestone-card.completed::before {
+      background: #4ade80;
+      box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+    }
+    .milestone-card.in-progress::before {
+      background: var(--accent-gold);
+      box-shadow: 0 0 10px rgba(229, 160, 13, 0.6);
+    }
+    @media (max-width: 991px) {
+      .dashboard-layout { grid-template-columns: 1fr; }
+      .grid-2col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="bg-pattern">
+  <!-- MOBILE HEADER BAR WITH HAMBURGER TOGGLE -->
+  <div class="dashboard-mobile-header">
+    <a href="index.html" class="brand-logo">
+      <img src="assets/images/logo_0103.webp" alt="Stratum Consulting Logo" class="brand-logo-img" style="height:36px;">
+    </a>
+    <button class="mobile-toggle dashboard-mobile-toggle" aria-label="Toggle Navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+
+  <div class="dashboard-layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div>
+        <a href="index.html" class="brand-logo" style="margin-bottom:20px; display:inline-block;">
+          <img src="assets/images/logo_0103.webp" alt="Stratum Consulting Logo" class="brand-logo-img" style="height:42px;">
+        </a>
+        <div style="font-size:0.75rem; color:var(--accent-gold); font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:20px;">
+          <i class="fa-solid fa-user-gear"></i> Customer Executive Portal
+        </div>
+        <ul class="sidebar-menu">
+          <li><a class="sidebar-link active" data-tab="tab-workspace"><i class="fa-solid fa-house-user"></i> Client Workspace</a></li>
+          <li><a class="sidebar-link" data-tab="tab-deliverables"><i class="fa-solid fa-file-pdf"></i> Deliverables & Reports</a></li>
+          <li><a class="sidebar-link" data-tab="tab-milestones"><i class="fa-solid fa-chart-diagram"></i> Engagement Milestones</a></li>
+          <li><a class="sidebar-link" data-tab="tab-support"><i class="fa-solid fa-comments"></i> Advisory Support</a></li>
+          <li><a class="sidebar-link" data-tab="tab-settings"><i class="fa-solid fa-gear"></i> Account Settings</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <a href="login.html" class="sidebar-link" style="color:#ef4444;"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+      </div>
+    </aside>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <main class="dashboard-content">
+
+      <!-- 01. TAB: CLIENT WORKSPACE -->
+      <div id="tab-workspace" class="tab-content active">
+        <!-- Header -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:32px;">
+          <div>
+            <h1 style="font-size:2rem; margin-bottom:4px;">Welcome to Your Advisory Portal</h1>
+            <p style="color:var(--text-muted); font-size:0.9rem;">Client Account: <strong style="color:var(--text-main);">Nexus Enterprise Corp</strong> | Lead Partner: <strong style="color:var(--accent-gold);">Arthur Vance</strong></p>
+          </div>
+        </div>
+
+        <!-- Active Engagement Banner -->
+        <div class="glass-card" style="padding:32px; border-radius:var(--radius-lg); margin-bottom:35px; background:linear-gradient(135deg, rgba(14,21,37,0.95), rgba(229,160,13,0.1)); border:1px solid var(--border-active);">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:20px;">
+            <div>
+              <span class="insight-tag" style="position:static; margin-bottom:12px; display:inline-block;">ACTIVE STRATEGY ENGAGEMENT</span>
+              <h2 style="font-size:1.6rem; margin-bottom:10px;">Q4 2026 Enterprise Digital Modernization & AI Roadmap</h2>
+              <p style="color:var(--text-muted); font-size:0.95rem; max-width:650px;">
+                Phase 3 of 4: Legacy infrastructure migration and executive governance framework alignment.
+              </p>
+            </div>
+            <button class="btn btn-primary" onclick="switchTab('tab-milestones')" style="padding:12px 24px;">View Engagement Briefing <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Grid 2-Column Section -->
+        <div class="grid-2col">
+          <!-- Deliverables Preview -->
+          <div class="glass-card" style="padding:28px; border-radius:var(--radius-md);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+              <h3 style="font-size:1.2rem;"><i class="fa-solid fa-folder-open text-gold"></i> Recent Executive Deliverables</h3>
+              <button onclick="switchTab('tab-deliverables')" class="btn btn-secondary" style="padding:6px 12px; font-size:0.8rem;">View All</button>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:14px; background:rgba(7,11,20,0.6); border:1px solid var(--border-light); border-radius:var(--radius-md);">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <i class="fa-solid fa-file-pdf text-gold" style="font-size:1.5rem;"></i>
+                  <div>
+                    <div style="font-weight:600; font-size:0.9rem;">Q4 Strategic Capital Allocation Matrix.pdf</div>
+                    <div style="font-size:0.75rem; color:var(--text-dim);">Published Oct 01, 2026 • 4.2 MB</div>
+                  </div>
+                </div>
+                <a href="404.html" class="btn btn-secondary" style="padding:6px 14px; font-size:0.8rem;">Download</a>
+              </div>
+
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:14px; background:rgba(7,11,20,0.6); border:1px solid var(--border-light); border-radius:var(--radius-md);">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <i class="fa-solid fa-chart-pie text-gold" style="font-size:1.5rem;"></i>
+                  <div>
+                    <div style="font-weight:600; font-size:0.9rem;">Enterprise AI Governance Model.xlsx</div>
+                    <div style="font-size:0.75rem; color:var(--text-dim);">Published Sep 24, 2026 • 1.8 MB</div>
+                  </div>
+                </div>
+                <a href="404.html" class="btn btn-secondary" style="padding:6px 14px; font-size:0.8rem;">Download</a>
+              </div>
+
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:14px; background:rgba(7,11,20,0.6); border:1px solid var(--border-light); border-radius:var(--radius-md);">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <i class="fa-solid fa-shield-halved text-gold" style="font-size:1.5rem;"></i>
+                  <div>
+                    <div style="font-weight:600; font-size:0.9rem;">Cyber Risk Audit & Vulnerability Assessment.pdf</div>
+                    <div style="font-size:0.75rem; color:var(--text-dim);">Published Sep 15, 2026 • 8.6 MB</div>
+                  </div>
+                </div>
+                <a href="404.html" class="btn btn-secondary" style="padding:6px 14px; font-size:0.8rem;">Download</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lead Partner Contact -->
+          <div class="glass-card" style="padding:28px; border-radius:var(--radius-md);">
+            <h3 style="font-size:1.2rem; margin-bottom:20px;"><i class="fa-solid fa-user-tie text-gold"></i> Lead Advisory Partner</h3>
+            <div style="text-align:center; padding:20px 0;">
+              <img src="assets/images/leader_1.webp" alt="Arthur Vance" style="width:90px; height:90px; border-radius:50%; object-fit:cover; border:2px solid var(--accent-gold); margin:0 auto 14px auto;">
+              <h4 style="font-size:1.2rem; margin-bottom:4px;">Arthur Vance</h4>
+              <p style="font-size:0.85rem; color:var(--accent-gold); margin-bottom:12px;">Senior Managing Partner, Strategy</p>
+              <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px; line-height:1.5;">
+                "Our team is currently finalizing the Q4 operational benchmark synthesis for your board presentation."
+              </p>
+              <button onclick="switchTab('tab-support')" class="btn btn-primary" style="width:100%; font-size:0.85rem;"><i class="fa-solid fa-calendar-check"></i> Request Executive Sync</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02. TAB: DELIVERABLES & REPORTS -->
+      <div id="tab-deliverables" class="tab-content">
+        <div style="margin-bottom:32px;">
+          <h1 style="font-size:2rem; margin-bottom:4px;">Executive Deliverables & Reports</h1>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Access confidential strategic blueprints, board briefs, and practice benchmarks.</p>
+        </div>
+
+        <div class="glass-card" style="padding:28px; border-radius:var(--radius-md);">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
+            <div style="position:relative; flex:1; max-width:400px;">
+              <input type="text" class="form-input" placeholder="Search report titles, tags, or topics..." style="padding-left:40px;">
+              <i class="fa-solid fa-magnifying-glass" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-dim);"></i>
+            </div>
+            <div style="display:flex; gap:10px;">
+              <button class="btn btn-secondary active" style="padding:8px 16px; font-size:0.85rem;">All Categories</button>
+              <button class="btn btn-secondary" style="padding:8px 16px; font-size:0.85rem;">Strategy</button>
+              <button class="btn btn-secondary" style="padding:8px 16px; font-size:0.85rem;">Governance</button>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:20px;">
+            <!-- Card 1 -->
+            <div style="padding:20px; background:rgba(7,11,20,0.6); border:1px solid var(--border-light); border-radius:var(--radius-md);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span style="padding:4px 10px; background:rgba(229,160,13,0.15); color:var(--accent-gold); border-radius:var(--radius-pill); font-size:0.75rem; font-weight:700;">STRATEGY</span>
+                <span style="font-size:0.75rem; color:var(--text-dim);">PDF • 4.2 MB</span>
+              </div>
+              <h4 style="font-size:1.05rem; margin-bottom:8px;">Q4 Strategic Capital Allocation Matrix</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">Comprehensive financial synthesis evaluating capital deployment across digital and core practices.</p>
+              <a href="404.html" class="btn btn-primary" style="width:100%; font-size:0.85rem; text-align:center; display:inline-block;"><i class="fa-solid fa-download"></i> Download Report</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div style="padding:20px; background:rgba(7,11,20,0.6); border:1px solid var(--border-light); border-radius:var(--radius-md);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span style="padding:4px 10px; background:rgba(229,160,13,0.15); color:var(--accent-gold); border-radius:var(--radius-pill); font-size:0.75rem; font-weight:700;">GOVERNANCE</span>
+                <span style="font-size:0.75rem; color:var(--text-dim);">XLSX • 1.8 MB</span>
+              </div>
+              <h4 style="font-size:1.05rem; margin-bottom:8px;">Enterprise AI Governance Model</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">Operational risk assessment matrix and compliance framework for generative AI integration.</p>
+              <a href="404.html" class="btn btn-primary" style="width:100%; font-size:0.85rem; text-align:center; display:inline-block;"><i class="fa-solid fa-download"></i> Download Model</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div style="padding:20px; background:rgba(7,11,20,0.6); border:1px solid var(--border-light); border-radius:var(--radius-md);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span style="padding:4px 10px; background:rgba(229,160,13,0.15); color:var(--accent-gold); border-radius:var(--radius-pill); font-size:0.75rem; font-weight:700;">SECURITY AUDIT</span>
+                <span style="font-size:0.75rem; color:var(--text-dim);">PDF • 8.6 MB</span>
+              </div>
+              <h4 style="font-size:1.05rem; margin-bottom:8px;">Cyber Risk Audit & Vulnerability Assessment</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">Third-party security posture audit detailing infrastructure resilience and mitigation protocols.</p>
+              <a href="404.html" class="btn btn-primary" style="width:100%; font-size:0.85rem; text-align:center; display:inline-block;"><i class="fa-solid fa-download"></i> Download Audit</a>
+            </div>
+
+            <!-- Card 4 -->
+            <div style="padding:20px; background:rgba(7,11,20,0.6); border:1px solid var(--border-light); border-radius:var(--radius-md);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span style="padding:4px 10px; background:rgba(229,160,13,0.15); color:var(--accent-gold); border-radius:var(--radius-pill); font-size:0.75rem; font-weight:700;">MARKET RESEARCH</span>
+                <span style="font-size:0.75rem; color:var(--text-dim);">PDF • 6.1 MB</span>
+              </div>
+              <h4 style="font-size:1.05rem; margin-bottom:8px;">Global Market Expansion Feasibility</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">Target market entry evaluation for APAC and EMEA regions with competitive dynamics.</p>
+              <a href="404.html" class="btn btn-primary" style="width:100%; font-size:0.85rem; text-align:center; display:inline-block;"><i class="fa-solid fa-download"></i> Download Report</a>
+            </div>
+
+            <!-- Card 5 -->
+            <div style="padding:20px; background:rgba(7,11,20,0.6); border:1px solid var(--border-light); border-radius:var(--radius-md);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span style="padding:4px 10px; background:rgba(229,160,13,0.15); color:var(--accent-gold); border-radius:var(--radius-pill); font-size:0.75rem; font-weight:700;">M&A ADVISORY</span>
+                <span style="font-size:0.75rem; color:var(--text-dim);">PDF • 3.4 MB</span>
+              </div>
+              <h4 style="font-size:1.05rem; margin-bottom:8px;">M&A Synergy & Asset Evaluation</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">Detailed valuation analysis and post-merger integration checklist for prospective acquisition.</p>
+              <a href="404.html" class="btn btn-primary" style="width:100%; font-size:0.85rem; text-align:center; display:inline-block;"><i class="fa-solid fa-download"></i> Download Brief</a>
+            </div>
+
+            <!-- Card 6 -->
+            <div style="padding:20px; background:rgba(7,11,20,0.6); border:1px solid var(--border-light); border-radius:var(--radius-md);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                <span style="padding:4px 10px; background:rgba(229,160,13,0.15); color:var(--accent-gold); border-radius:var(--radius-pill); font-size:0.75rem; font-weight:700;">OPERATIONS</span>
+                <span style="font-size:0.75rem; color:var(--text-dim);">DOCX • 2.1 MB</span>
+              </div>
+              <h4 style="font-size:1.05rem; margin-bottom:8px;">Operational Cost Restructuring Roadmap</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">Step-by-step efficiency framework aimed at reducing overhead expenses by 18%.</p>
+              <a href="404.html" class="btn btn-primary" style="width:100%; font-size:0.85rem; text-align:center; display:inline-block;"><i class="fa-solid fa-download"></i> Download Roadmap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03. TAB: ENGAGEMENT MILESTONES -->
+      <div id="tab-milestones" class="tab-content">
+        <div style="margin-bottom:32px;">
+          <h1 style="font-size:2rem; margin-bottom:4px;">Engagement Milestones & Roadmap</h1>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Track real-time progress, deliverable timelines, and strategic milestones.</p>
+        </div>
+
+        <div class="glass-card" style="padding:28px; border-radius:var(--radius-md); margin-bottom:30px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span style="font-weight:600; font-size:1rem;">Overall Transformation Completion</span>
+            <span style="font-weight:700; color:var(--accent-gold); font-size:1.2rem;">75% Complete</span>
+          </div>
+          <div style="width:100%; height:10px; background:rgba(7,11,20,0.8); border-radius:var(--radius-pill); overflow:hidden;">
+            <div style="width:75%; height:100%; background:linear-gradient(90deg, var(--accent-gold-dark), var(--accent-gold)); border-radius:var(--radius-pill);"></div>
+          </div>
+        </div>
+
+        <div class="glass-card" style="padding:28px; border-radius:var(--radius-md);">
+          <h3 style="font-size:1.2rem; margin-bottom:24px;"><i class="fa-solid fa-bars-staggered text-gold"></i> Execution Timeline</h3>
+
+          <!-- Milestone 1 -->
+          <div class="milestone-card completed">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <h4 style="font-size:1.1rem; color:#fff;">Phase 1: Strategic Discovery & Baseline Audit</h4>
+              <span style="padding:4px 10px; background:rgba(74,222,128,0.15); color:#4ade80; border-radius:var(--radius-pill); font-size:0.75rem; font-weight:700;">COMPLETED</span>
+            </div>
+            <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:8px;">Executive stakeholder interviews, data architecture mapping, and legacy infrastructure benchmarking.</p>
+            <div style="font-size:0.75rem; color:var(--text-dim);"><i class="fa-solid fa-calendar-check text-gold"></i> Finalized Aug 15, 2026 • Deliverable: Discovery Whitepaper</div>
+          </div>
+
+          <!-- Milestone 2 -->
+          <div class="milestone-card completed">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <h4 style="font-size:1.1rem; color:#fff;">Phase 2: Target Architecture & Digital Gap Analysis</h4>
+              <span style="padding:4px 10px; background:rgba(74,222,128,0.15); color:#4ade80; border-radius:var(--radius-pill); font-size:0.75rem; font-weight:700;">COMPLETED</span>
+            </div>
+            <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:8px;">Designing future-state cloud & AI architecture with financial impact assessment.</p>
+            <div style="font-size:0.75rem; color:var(--text-dim);"><i class="fa-solid fa-calendar-check text-gold"></i> Finalized Sep 20, 2026 • Deliverable: Target Blueprint PDF</div>
+          </div>
+
+          <!-- Milestone 3 -->
+          <div class="milestone-card in-progress">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <h4 style="font-size:1.1rem; color:#fff;">Phase 3: AI Tool Deployment & Team Governance</h4>
+              <span style="padding:4px 10px; background:rgba(229,160,13,0.15); color:var(--accent-gold); border-radius:var(--radius-pill); font-size:0.75rem; font-weight:700;">IN PROGRESS (75%)</span>
+            </div>
+            <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:8px;">Pilot deployment of generative analytics tools across finance and operational divisions.</p>
+            <div style="font-size:0.75rem; color:var(--text-dim);"><i class="fa-solid fa-clock text-gold"></i> Target Completion: Oct 15, 2026 • Lead: Arthur Vance</div>
+          </div>
+
+          <!-- Milestone 4 -->
+          <div class="milestone-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <h4 style="font-size:1.1rem; color:#fff;">Phase 4: Executive Rollout & Board Review</h4>
+              <span style="padding:4px 10px; background:rgba(100,116,139,0.2); color:var(--text-muted); border-radius:var(--radius-pill); font-size:0.75rem; font-weight:700;">SCHEDULED</span>
+            </div>
+            <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:8px;">Enterprise-wide transition, executive KPI dashboard activation, and board presentation synthesis.</p>
+            <div style="font-size:0.75rem; color:var(--text-dim);"><i class="fa-solid fa-calendar-days text-gold"></i> Scheduled: Nov 10, 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04. TAB: ADVISORY SUPPORT -->
+      <div id="tab-support" class="tab-content">
+        <div style="margin-bottom:32px;">
+          <h1 style="font-size:2rem; margin-bottom:4px;">Direct Advisory Support</h1>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Schedule board briefings, communicate with your lead partner, or open an executive request.</p>
+        </div>
+
+        <div class="grid-2col">
+          <!-- Messaging Form -->
+          <div class="glass-card" style="padding:28px; border-radius:var(--radius-md);">
+            <h3 style="font-size:1.2rem; margin-bottom:20px;"><i class="fa-solid fa-paper-plane text-gold"></i> Send Advisory Request</h3>
+            <form id="support-form">
+              <div class="form-group">
+                <label class="form-label">Topic / Area of Interest *</label>
+                <select class="form-input">
+                  <option>Board Presentation Synthesis</option>
+                  <option>M&A Valuation Consultation</option>
+                  <option>AI Governance Advisory</option>
+                  <option>Emergency Risk Assessment</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Urgency Level *</label>
+                <select class="form-input">
+                  <option>Standard Executive Review (24h)</option>
+                  <option>High Priority Briefing (12h)</option>
+                  <option>Urgent Board Emergency (Direct Call)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Message Overview *</label>
+                <textarea class="form-input" style="min-height:120px;" placeholder="Detail your specific question, challenge, or meeting agenda..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;">Submit Inquiry to Lead Partner</button>
+            </form>
+          </div>
+
+          <!-- Schedule Sync Box -->
+          <div class="glass-card" style="padding:28px; border-radius:var(--radius-md);">
+            <h3 style="font-size:1.2rem; margin-bottom:20px;"><i class="fa-solid fa-calendar-plus text-gold"></i> Executive Sync Calendar</h3>
+            <div style="text-align:center; padding:10px 0 20px 0;">
+              <div style="padding:16px; background:rgba(7,11,20,0.6); border:1px solid var(--border-light); border-radius:var(--radius-md); margin-bottom:16px;">
+                <div style="font-weight:700; color:var(--accent-gold); font-size:1.1rem; margin-bottom:4px;">Next Available Briefing Slot</div>
+                <div style="font-size:0.9rem; color:#fff;">Thursday, Oct 05, 2026 @ 14:00 EST</div>
+                <div style="font-size:0.8rem; color:var(--text-dim); margin-top:4px;">Format: Video Briefing / Confidential Room</div>
+              </div>
+              <button class="btn btn-primary" style="width:100%; margin-bottom:16px;"><i class="fa-solid fa-check-double"></i> Confirm Oct 05 Briefing Slot</button>
+              <div style="font-size:0.8rem; color:var(--text-muted);">Direct Contact Hotline: <strong style="color:#fff;">+1 (800) 555-STRATUM</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05. TAB: ACCOUNT SETTINGS -->
+      <div id="tab-settings" class="tab-content">
+        <div style="margin-bottom:32px;">
+          <h1 style="font-size:2rem; margin-bottom:4px;">Account & Security Settings</h1>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Manage corporate client credentials, notification preferences, and access permissions.</p>
+        </div>
+
+        <div class="glass-card" style="padding:28px; border-radius:var(--radius-md); margin-bottom:30px;">
+          <h3 style="font-size:1.2rem; margin-bottom:20px;"><i class="fa-solid fa-building text-gold"></i> Corporate Profile</h3>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+            <div class="form-group">
+              <label class="form-label">Company Legal Name</label>
+              <input type="text" class="form-input" value="Nexus Enterprise Corp" readonly style="opacity:0.8;">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Primary Account Owner</label>
+              <input type="text" class="form-input" value="Arthur Vance (Executive VP)">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Corporate Email</label>
+              <input type="email" class="form-input" value="client@nexuscapital.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Dedicated Industry Practice</label>
+              <input type="text" class="form-input" value="Financial Services & Capital Markets" readonly style="opacity:0.8;">
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card" style="padding:28px; border-radius:var(--radius-md);">
+          <h3 style="font-size:1.2rem; margin-bottom:20px;"><i class="fa-solid fa-shield-halved text-gold"></i> Security & Authentication</h3>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:16px; background:rgba(7,11,20,0.6); border:1px solid var(--border-light); border-radius:var(--radius-md); margin-bottom:16px;">
+            <div>
+              <div style="font-weight:600; font-size:0.95rem;">Two-Factor Authentication (2FA)</div>
+              <div style="font-size:0.8rem; color:var(--text-muted);">Secured via Hardware Security Key / Authenticator App</div>
+            </div>
+            <span style="padding:6px 14px; background:rgba(74,222,128,0.15); color:#4ade80; border-radius:var(--radius-pill); font-size:0.8rem; font-weight:700;">ENABLED</span>
+          </div>
+
+          <button class="btn btn-secondary" style="font-size:0.875rem;"><i class="fa-solid fa-key"></i> Update Account Password</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.sidebar-link').forEach(link => link.classList.remove('active'));
+
+      const selectedTab = document.getElementById(tabId);
+      const selectedLink = document.querySelector(`.sidebar-link[data-tab="${tabId}"]`);
+
+      if (selectedTab) selectedTab.classList.add('active');
+      if (selectedLink) selectedLink.classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.sidebar-link[data-tab]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetTab = link.getAttribute('data-tab');
+          if (targetTab) switchTab(targetTab);
+        });
+      });
+
+      const supportForm = document.getElementById('support-form');
+      if (supportForm) {
+        supportForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          alert('Advisory request successfully transmitted to Arthur Vance! Your lead partner will respond within 12 hours.');
+          supportForm.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

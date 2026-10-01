@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client & Executive Portal Login | Stratum Consulting</title>
+  <meta name="description" content="Secure access to Stratum Consulting executive client portal, strategy dashboards, and admin management.">
+  <link rel="icon" type="image/webp" href="assets/images/logo_0103.webp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-pattern" style="margin:0; overflow-x:hidden;">
+
+  <!-- AMBIENT FLOATING BLOBS -->
+  <div class="blob-container">
+    <div class="floating-blob blob-gold"></div>
+  </div>
+
+  <div class="auth-page-container">
+    <!-- LEFT PANEL - BRAND VISUAL -->
+    <div class="auth-left-panel">
+      <!-- Background Visual -->
+      <img src="assets/images/hero_slide_2.webp" alt="Stratum Consulting Brand Asset" class="auth-bg-img">
+
+      <!-- Overlay Content -->
+      <div style="position:relative; z-index:5; margin-top:auto; max-width:480px;">
+        <a href="index.html" class="brand-logo" style="margin-bottom:20px; display:inline-block;">
+          <img src="assets/images/logo_0103.webp" alt="Stratum Consulting Logo" class="brand-logo-img" style="height:48px;">
+        </a>
+        <h2 style="font-size:2.2rem; margin-bottom:14px; color:#fff; line-height:1.2;">
+          Empowering Executives With Strategic Intelligence
+        </h2>
+        <p style="color:var(--text-muted); font-size:1rem; line-height:1.6; margin-bottom:0;">
+          Access your enterprise dashboard, advisory deliverables, and real-time consulting analytics.
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL - AUTHENTICATION FORM CARD -->
+    <div class="auth-right-panel">
+      <div class="auth-form-card">
+
+        <!-- BRAND LOGO HEADER FOR MOBILE -->
+        <div style="text-align:center; margin-bottom:24px;" class="mobile-only-logo">
+          <a href="index.html">
+            <img src="assets/images/logo_0103.webp" alt="Stratum Consulting" style="height:42px; margin-bottom:12px;">
+          </a>
+        </div>
+
+        <!-- FORM TITLE & SUBTITLE -->
+        <div style="margin-bottom:24px;">
+          <h1 id="auth-title" style="font-size:2rem; margin-bottom:6px; font-weight:700;">
+            Welcome Back
+          </h1>
+          <p id="auth-subtitle" style="font-size:0.875rem; color:var(--text-muted); margin:0;">
+            Secure Executive & Client Gateway
+          </p>
+        </div>
+
+        <!-- AUTH FORM -->
+        <form id="auth-form">
+          <!-- 01. ROLE SELECTION SLOT -->
+          <div style="margin-bottom:20px;">
+            <label class="form-label" style="margin-bottom:8px; display:block;">Select Access Role *</label>
+            <div class="role-selector-grid">
+              <label class="role-card-pill active" id="pill-customer">
+                <input type="radio" name="userRole" value="customer" checked>
+                <i class="fa-solid fa-user-gear text-gold"></i> Customer
+              </label>
+              <label class="role-card-pill" id="pill-admin">
+                <input type="radio" name="userRole" value="admin">
+                <i class="fa-solid fa-user-shield text-gold"></i> Admin
+              </label>
+            </div>
+          </div>
+
+          <!-- 02. FULL NAME SLOT (VISIBLE ONLY IN SIGN UP MODE) -->
+          <div class="form-group" id="signup-name-group" style="display:none;">
+            <label class="form-label">Full Name *</label>
+            <input type="text" id="auth-name" class="form-input" placeholder="e.g. Arthur Vance">
+          </div>
+
+          <!-- 03. EMAIL SLOT -->
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" id="auth-email" class="form-input" placeholder="executive@company.com" required>
+          </div>
+
+          <!-- 04. PASSWORD SLOT WITH EYE TOGGLE -->
+          <div class="form-group">
+            <label class="form-label">Password *</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="auth-password" class="form-input" placeholder="••••••••••••" required>
+              <button type="button" class="password-toggle-btn" id="btn-toggle-pwd" aria-label="Toggle password visibility">
+                <i class="fa-solid fa-eye" id="eye-icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 05. CONFIRM PASSWORD SLOT (VISIBLE ONLY IN SIGN UP MODE) -->
+          <div class="form-group" id="signup-confirm-group" style="display:none;">
+            <label class="form-label">Confirm Password *</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="auth-confirm-password" class="form-input" placeholder="••••••••••••">
+              <button type="button" class="password-toggle-btn" id="btn-toggle-confirm-pwd" aria-label="Toggle confirm password visibility">
+                <i class="fa-solid fa-eye" id="confirm-eye-icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 06. REMEMBER ME & FORGOT PASSWORD (SIGN IN MODE) -->
+          <div id="signin-options" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; font-size:0.85rem;">
+            <label style="display:flex; align-items:center; gap:8px; color:var(--text-muted); cursor:pointer;">
+              <input type="checkbox" checked style="accent-color:var(--accent-gold);"> Remember me
+            </label>
+            <button type="button" style="background:none; border:none; color:var(--accent-gold); cursor:pointer; font-weight:500; font-size:0.85rem;" data-modal-target="forgot-modal">
+              Forgot password?
+            </button>
+          </div>
+
+          <!-- 07. LOGIN / SUBMIT BUTTON -->
+          <button type="submit" id="auth-submit-btn" class="btn btn-primary" style="width:100%; padding:14px; font-size:0.95rem; margin-bottom:12px;">
+            Sign In & Access Dashboard
+            <span class="btn-icon-circle"><i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+
+          <!-- 08. BACK TO HOME BUTTON (PLACED DIRECTLY UNDER LOGIN BUTTON) -->
+          <a href="index.html" class="btn btn-secondary" style="width:100%; text-align:center; justify-content:center; padding:12px; font-size:0.875rem; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+          </a>
+
+          <!-- 09. CREATE AN ACCOUNT BUTTON (PLACED DIRECTLY UNDER BACK TO HOME BUTTON) -->
+          <button type="button" id="btn-switch-mode" class="btn btn-secondary" style="width:100%; text-align:center; justify-content:center; padding:12px; font-size:0.875rem; border-color:var(--border-active); color:var(--accent-gold); display:flex; align-items:center; gap:8px;">
+            <i class="fa-solid fa-user-plus text-gold" id="switch-icon"></i>
+            <span id="switch-mode-text">Create an Account</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORGOT PASSWORD MODAL -->
+  <div class="modal-overlay" id="forgot-modal">
+    <div class="modal-box" style="max-width:440px;">
+      <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="margin-bottom:12px; font-size:1.5rem;"><i class="fa-solid fa-key text-gold"></i> Reset Portal Password</h3>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:20px;">
+        Enter your registered email address to receive a secure single-use password reset verification link.
+      </p>
+      <form id="forgot-form">
+        <div class="form-group">
+          <input type="email" class="form-input" placeholder="executive@company.com" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Send Reset Verification</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let isSignUpMode = false;
+
+      const authTitle = document.getElementById('auth-title');
+      const authSubtitle = document.getElementById('auth-subtitle');
+      const btnSwitchMode = document.getElementById('btn-switch-mode');
+      const switchModeText = document.getElementById('switch-mode-text');
+      const switchIcon = document.getElementById('switch-icon');
+      const signupNameGroup = document.getElementById('signup-name-group');
+      const signupConfirmGroup = document.getElementById('signup-confirm-group');
+      const signinOptions = document.getElementById('signin-options');
+      const authSubmitBtn = document.getElementById('auth-submit-btn');
+      const authForm = document.getElementById('auth-form');
+
+      const pillCustomer = document.getElementById('pill-customer');
+      const pillAdmin = document.getElementById('pill-admin');
+
+      const emailInput = document.getElementById('auth-email');
+      const pwdInput = document.getElementById('auth-password');
+      const nameInput = document.getElementById('auth-name');
+      const confirmPwdInput = document.getElementById('auth-confirm-password');
+
+      // Role Pill Click Handlers
+      pillCustomer.addEventListener('click', () => {
+        pillCustomer.classList.add('active');
+        pillAdmin.classList.remove('active');
+        pillCustomer.querySelector('input').checked = true;
+      });
+
+      pillAdmin.addEventListener('click', () => {
+        pillAdmin.classList.add('active');
+        pillCustomer.classList.remove('active');
+        pillAdmin.querySelector('input').checked = true;
+      });
+
+      // Toggle Password Visibility
+      const btnTogglePwd = document.getElementById('btn-toggle-pwd');
+      const eyeIcon = document.getElementById('eye-icon');
+      if (btnTogglePwd && pwdInput) {
+        btnTogglePwd.addEventListener('click', () => {
+          const isPwd = pwdInput.type === 'password';
+          pwdInput.type = isPwd ? 'text' : 'password';
+          eyeIcon.className = isPwd ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+        });
+      }
+
+      const btnToggleConfirmPwd = document.getElementById('btn-toggle-confirm-pwd');
+      const confirmEyeIcon = document.getElementById('confirm-eye-icon');
+      if (btnToggleConfirmPwd && confirmPwdInput) {
+        btnToggleConfirmPwd.addEventListener('click', () => {
+          const isPwd = confirmPwdInput.type === 'password';
+          confirmPwdInput.type = isPwd ? 'text' : 'password';
+          confirmEyeIcon.className = isPwd ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+        });
+      }
+
+      // Toggle between Sign In and Sign Up Modes
+      function setAuthMode(signUp) {
+        isSignUpMode = signUp;
+        if (isSignUpMode) {
+          authTitle.textContent = 'Create an Account';
+          authSubtitle.innerHTML = 'Already have an account? <button type="button" id="btn-subtitle-signin" style="background:none; border:none; color:var(--accent-gold); font-weight:600; cursor:pointer; padding:0; text-decoration:underline;">Sign In</button>';
+          signupNameGroup.style.display = 'block';
+          signupConfirmGroup.style.display = 'block';
+          signinOptions.style.display = 'none';
+          authSubmitBtn.innerHTML = 'Create Account <span class="btn-icon-circle"><i class="fa-solid fa-user-plus"></i></span>';
+          if (btnSwitchMode) btnSwitchMode.style.display = 'none';
+          if (nameInput) nameInput.required = true;
+          if (confirmPwdInput) confirmPwdInput.required = true;
+
+          const btnSubtitleSignin = document.getElementById('btn-subtitle-signin');
+          if (btnSubtitleSignin) {
+            btnSubtitleSignin.addEventListener('click', () => setAuthMode(false));
+          }
+        } else {
+          authTitle.textContent = 'Welcome Back';
+          authSubtitle.textContent = 'Secure Executive & Client Gateway';
+          signupNameGroup.style.display = 'none';
+          signupConfirmGroup.style.display = 'none';
+          signinOptions.style.display = 'flex';
+          authSubmitBtn.innerHTML = 'Sign In & Access Dashboard <span class="btn-icon-circle"><i class="fa-solid fa-arrow-right"></i></span>';
+          if (btnSwitchMode) {
+            btnSwitchMode.style.display = 'flex';
+            if (switchModeText) switchModeText.textContent = 'Create an Account';
+            if (switchIcon) switchIcon.className = 'fa-solid fa-user-plus text-gold';
+          }
+          if (nameInput) nameInput.required = false;
+          if (confirmPwdInput) confirmPwdInput.required = false;
+        }
+      }
+
+      if (btnSwitchMode) {
+        btnSwitchMode.addEventListener('click', () => setAuthMode(!isSignUpMode));
+      }
+
+      // Submit Form Handler & Dashboard Redirection
+      if (authForm) {
+        authForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const selectedRole = document.querySelector('input[name="userRole"]:checked').value;
+
+          if (isSignUpMode) {
+            // Check password match
+            if (pwdInput.value !== confirmPwdInput.value) {
+              alert('Passwords do not match. Please check and try again.');
+              return;
+            }
+
+            // Create account notification & redirect back to login
+            alert(`Account successfully created for ${emailInput.value} as ${selectedRole.toUpperCase()}! Switching to Sign In mode.`);
+            setAuthMode(false);
+          } else {
+            // Log in & redirect to respective dashboard
+            if (selectedRole === 'admin') {
+              window.location.href = 'admin_dashboard.html';
+            } else {
+              window.location.href = 'customer_dashboard.html';
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

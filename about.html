@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Stratum Consulting - Strategic Leadership & Transformation</title>
+  <meta name="description" content="Discover Stratum Consulting's strategic philosophy, consulting approach, areas of expertise, leadership perspective, and proven impact in global management consulting.">
+  <link rel="icon" type="image/webp" href="assets/images/logo_0103.webp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Section-specific custom refinements */
+    .methodology-flow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-card);
+      border: 1px solid var(--border-active);
+      border-radius: var(--radius-pill);
+      padding: 18px 36px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+      gap: 15px;
+      box-shadow: var(--shadow-glow);
+    }
+    .flow-step-node {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-main);
+    }
+    .flow-step-node i {
+      color: var(--accent-gold);
+      font-size: 1rem;
+    }
+    .flow-arrow {
+      color: var(--accent-gold);
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
+    .diff-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 12px;
+      margin-top: 24px;
+    }
+    .diff-row {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      transition: var(--transition-smooth);
+    }
+    .diff-row:hover {
+      background: var(--bg-surface-elevated);
+      border-color: var(--border-active);
+    }
+    .diff-cell {
+      padding: 18px 24px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .diff-cell.highlight {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+    .diff-cell i {
+      margin-right: 8px;
+    }
+    .vision-mission-card {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-glass);
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+    }
+    .vision-mission-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(7, 11, 20, 0.94) 0%, rgba(14, 21, 37, 0.88) 100%);
+    }
+    .vision-mission-content {
+      position: relative;
+      z-index: 2;
+      padding: 60px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="bg-pattern">
+
+  <!-- AMBIENT FLOATING BLOBS -->
+  <div class="blob-container">
+    <div class="floating-blob blob-gold"></div>
+    <div class="floating-blob blob-blue"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/logo_0103.webp" alt="Stratum Consulting Logo" class="brand-logo-img">
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link active">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li class="mobile-portal-item">
+          <a href="login.html" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 16px; font-size: 0.95rem;">
+            Login / Client Portal <span class="btn-icon-circle"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-primary">
+          Client Portal
+          <span class="btn-icon-circle"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <button class="mobile-toggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 01. HERO SECTION -->
+  <section class="section-padding glass-panel" style="border-bottom:1px solid var(--border-light); padding: 120px 0 90px 0; position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="hero-content" style="padding:0; max-width:920px;">
+        <span class="hero-eyebrow" data-aos="fade-down"><i class="fa-solid fa-compass text-gold" style="margin-right:6px;"></i> 01. HERO SECTION</span>
+        <h1 class="hero-title" data-aos="fade-up" style="font-size:3.8rem; margin-bottom:20px;">
+          Strategic Thinking. <span>Transformative Outcomes.</span>
+        </h1>
+        <p class="hero-description" data-aos="fade-up" data-aos-delay="150" style="font-size:1.25rem; color:var(--text-muted); line-height:1.8; margin-bottom:36px;">
+          Helping ambitious organizations navigate complexity, unlock growth, and build businesses designed for the future. We bridge deep empirical business intelligence, C-suite strategy, and practical operational execution.
+        </p>
+        <div class="hero-buttons" data-aos="fade-up" data-aos-delay="250">
+          <a href="404.html" class="btn btn-primary" style="padding:16px 36px; font-size:1rem;">
+            Discover Our Approach
+            <span class="btn-icon-circle"><i class="fa-solid fa-arrow-down"></i></span>
+          </a>
+          <a href="404.html" class="btn btn-secondary" style="padding:16px 32px; font-size:1rem;">
+            Start a Conversation <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02. WHO WE ARE -->
+  <section class="section-padding" id="who-we-are">
+    <div class="container">
+      <div class="solutions-wrapper" style="align-items:center; gap:60px;">
+        <div data-aos="fade-right">
+          <span class="section-subtitle"><i class="fa-solid fa-building-columns"></i> 02. WHO WE ARE</span>
+          <h2 class="section-title">Where Insight Meets Strategic Action</h2>
+          <p style="color:var(--text-main); font-size:1.15rem; font-weight:600; line-height:1.7; margin-bottom:18px;">
+            We are a management consulting firm helping organizations turn complex business challenges into clear strategic opportunities. Our work combines business intelligence, strategic thinking, operational expertise, and practical execution.
+          </p>
+          <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.7; margin-bottom:24px;">
+            Founded by veteran C-suite advisors, Stratum was established to bridge the persistent gap between high-level boardroom recommendations and tangible, bottom-line financial results. We work shoulder-to-shoulder with executive leadership teams, board members, and private equity investors to architect resilient strategies that thrive in shifting global markets.
+          </p>
+          <div style="display:flex; gap:24px; flex-wrap:wrap; margin-top:28px;">
+            <div class="stat-card glass-card" style="padding:18px 24px; text-align:left; flex:1; min-width:140px;">
+              <div class="stat-number" style="justify-content:flex-start; font-size:2.2rem;">$3.8B+</div>
+              <div class="stat-label">Value Generated</div>
+            </div>
+            <div class="stat-card glass-card" style="padding:18px 24px; text-align:left; flex:1; min-width:140px;">
+              <div class="stat-number" style="justify-content:flex-start; font-size:2.2rem;">15+ Yrs</div>
+              <div class="stat-label">C-Suite Advisory</div>
+            </div>
+            <div class="stat-card glass-card" style="padding:18px 24px; text-align:left; flex:1; min-width:140px;">
+              <div class="stat-number" style="justify-content:flex-start; font-size:2.2rem;">98.4%</div>
+              <div class="stat-label">Client Retention</div>
+            </div>
+          </div>
+        </div>
+        <div class="glass-card" data-aos="fade-left" style="padding:14px; border-radius:var(--radius-lg); position:relative;">
+          <img src="assets/images/about_who_we_are.webp" alt="Stratum Executive Strategy Boardroom" style="width:100%; border-radius:var(--radius-md); object-fit:cover; height:440px; box-shadow:var(--shadow-card);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03. OUR STRATEGIC PHILOSOPHY -->
+  <section class="section-padding bg-surface" id="philosophy">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle"><i class="fa-solid fa-lightbulb"></i> 03. OUR STRATEGIC PHILOSOPHY</span>
+        <h2 class="section-title">Think Beyond Today. Build for What’s Next.</h2>
+        <p class="section-description">
+          True strategic leadership requires rising above immediate market turbulence to architect scalable business models that create compounding value.
+        </p>
+      </div>
+
+      <div class="expertise-grid" style="grid-template-columns: repeat(2, 1fr); gap:30px;">
+        
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-chess-knight"></i></div>
+          <span class="trans-tag">PILLAR 01</span>
+          <h3 class="card-title" style="margin-top:6px;">Challenge Conventional Thinking</h3>
+          <p class="card-description">
+            Industry orthodoxy and legacy assumptions often blind organizations to emerging disruptions. We rigorously question status-quo operating models to uncover non-obvious growth vectors and breakthrough business opportunities.
+          </p>
+        </div>
+
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-filter-circle-dollar"></i></div>
+          <span class="trans-tag">PILLAR 02</span>
+          <h3 class="card-title" style="margin-top:6px;">Turn Complexity Into Clarity</h3>
+          <p class="card-description">
+            Modern enterprise environments generate vast volumes of noisy data. We synthesize complex market dynamics, financial metrics, and operational bottlenecks into focused, prioritized strategic roadmaps for board decision-making.
+          </p>
+        </div>
+
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-diagram-project"></i></div>
+          <span class="trans-tag">PILLAR 03</span>
+          <h3 class="card-title" style="margin-top:6px;">Connect Strategy With Execution</h3>
+          <p class="card-description">
+            A strategy is only as powerful as its operational delivery. We bridge the gap between high-level boardroom intent and day-to-day corporate workflows, embedding disciplined PMO oversight and clear metrics.
+          </p>
+        </div>
+
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-shield-cat"></i></div>
+          <span class="trans-tag">PILLAR 04</span>
+          <h3 class="card-title" style="margin-top:6px;">Create Sustainable Competitive Advantage</h3>
+          <p class="card-description">
+            Short-term efficiency gains must be paired with durable enterprise value. We help organizations build structural moats, digital infrastructure, and institutional capabilities that ensure market leadership for decades.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. WHAT WE STAND FOR -->
+  <section class="section-padding" id="principles">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle"><i class="fa-solid fa-scale-balanced"></i> 04. WHAT WE STAND FOR</span>
+        <h2 class="section-title">Principles That Shape Every Decision</h2>
+        <p class="section-description">
+          Our core principles define our culture, dictate how we serve clients, and ensure unyielding integrity across every consulting engagement.
+        </p>
+      </div>
+
+      <div class="why-us-grid" style="grid-template-columns: repeat(5, 1fr); gap:20px;">
+        
+        <div class="pillar-card glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="pillar-icon"><i class="fa-solid fa-eye text-gold"></i></div>
+          <h3 class="pillar-title">Clarity</h3>
+          <p class="pillar-desc">Making complex business decisions easier to understand through transparent data and objective strategic frameworks.</p>
+        </div>
+
+        <div class="pillar-card glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="pillar-icon"><i class="fa-solid fa-handshake-angle text-gold"></i></div>
+          <h3 class="pillar-title">Integrity</h3>
+          <p class="pillar-desc">Building relationships through transparency, unyielding ethics, and independent advice free from conflicts of interest.</p>
+        </div>
+
+        <div class="pillar-card glass-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="pillar-icon"><i class="fa-solid fa-chart-pie text-gold"></i></div>
+          <h3 class="pillar-title">Impact</h3>
+          <p class="pillar-desc">Focusing relentlessly on measurable business outcomes, enterprise valuation growth, and EBITDA performance.</p>
+        </div>
+
+        <div class="pillar-card glass-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="pillar-icon"><i class="fa-solid fa-atom text-gold"></i></div>
+          <h3 class="pillar-title">Innovation</h3>
+          <p class="pillar-desc">Creating solutions that move businesses forward by harnessing advanced technology and modern operational design.</p>
+        </div>
+
+        <div class="pillar-card glass-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="pillar-icon"><i class="fa-solid fa-users-gear text-gold"></i></div>
+          <h3 class="pillar-title">Partnership</h3>
+          <p class="pillar-desc">Working alongside leadership, not simply advising from the sidelines, taking shared ownership in results.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 05. OUR CONSULTING APPROACH -->
+  <section class="section-padding bg-surface" id="consulting-approach">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle"><i class="fa-solid fa-route"></i> 05. OUR CONSULTING APPROACH</span>
+        <h2 class="section-title">From Business Challenges to Strategic Breakthroughs</h2>
+        <p class="section-description">
+          A disciplined 5-phase transformation roadmap designed to diagnose systemic issues and deliver predictable, high-impact business outcomes.
+        </p>
+      </div>
+
+      <div class="approach-stepper" style="grid-template-columns: repeat(5, 1fr); gap:20px;">
+        
+        <div class="approach-step glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="approach-number">01</div>
+          <h4 class="approach-title">Understand</h4>
+          <p class="approach-desc">Deeply analyze the business, market landscape, customer segments, and underlying organizational challenges.</p>
+        </div>
+
+        <div class="approach-step glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="approach-number">02</div>
+          <h4 class="approach-title">Diagnose</h4>
+          <p class="approach-desc">Identify underlying operational issues, capital inefficiencies, growth barriers, and untapped market opportunities.</p>
+        </div>
+
+        <div class="approach-step glass-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="approach-number">03</div>
+          <h4 class="approach-title">Strategize</h4>
+          <p class="approach-desc">Develop focused, data-grounded strategies and stress-tested financial models aligned with corporate objectives.</p>
+        </div>
+
+        <div class="approach-step glass-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="approach-number">04</div>
+          <h4 class="approach-title">Execute</h4>
+          <p class="approach-desc">Translate strategic recommendations into actionable initiatives with hands-on implementation and PMO leadership.</p>
+        </div>
+
+        <div class="approach-step glass-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="approach-number">05</div>
+          <h4 class="approach-title">Evolve</h4>
+          <p class="approach-desc">Continuously measure performance metrics, refine operational workflows, and optimize for long-term growth.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 06. OUR AREAS OF EXPERTISE -->
+  <section class="section-padding" id="areas-of-expertise">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle"><i class="fa-solid fa-layer-group"></i> 06. OUR AREAS OF EXPERTISE</span>
+        <h2 class="section-title">Expertise Built Around Your Business Priorities</h2>
+        <p class="section-description">
+          Specialized practice areas engineered to address critical executive challenges and unlock multi-dimensional enterprise growth.
+        </p>
+      </div>
+
+      <div class="expertise-grid" style="grid-template-columns: repeat(4, 1fr); gap:24px;">
+        
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-chess-king"></i></div>
+          <h3 class="card-title" style="font-size:1.25rem;">Business Strategy</h3>
+          <p class="card-description" style="font-size:0.875rem;">Corporate vision, competitive positioning, and portfolio optimization for market leaders.</p>
+        </div>
+
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-chart-line"></i></div>
+          <h3 class="card-title" style="font-size:1.25rem;">Growth & Expansion</h3>
+          <p class="card-description" style="font-size:0.875rem;">International market entry, organic revenue acceleration, and new product commercialization.</p>
+        </div>
+
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-laptop-code"></i></div>
+          <h3 class="card-title" style="font-size:1.25rem;">Digital Transformation</h3>
+          <p class="card-description" style="font-size:0.875rem;">Enterprise software modernization, cloud scalability, and artificial intelligence integration.</p>
+        </div>
+
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-sitemap"></i></div>
+          <h3 class="card-title" style="font-size:1.25rem;">Organizational Strategy</h3>
+          <p class="card-description" style="font-size:0.875rem;">Governance redesign, executive talent frameworks, and high-performance culture alignment.</p>
+        </div>
+
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-gears"></i></div>
+          <h3 class="card-title" style="font-size:1.25rem;">Operational Excellence</h3>
+          <p class="card-description" style="font-size:0.875rem;">Lean supply chain resilience, cost restructuring, and factory throughput automation.</p>
+        </div>
+
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="350">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <h3 class="card-title" style="font-size:1.25rem;">Market Intelligence</h3>
+          <p class="card-description" style="font-size:0.875rem;">Macroeconomic forecasting, customer sentiment analytics, and deep competitor profiling.</p>
+        </div>
+
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-coins"></i></div>
+          <h3 class="card-title" style="font-size:1.25rem;">Financial Strategy</h3>
+          <p class="card-description" style="font-size:0.875rem;">EBITDA margin expansion, capital allocation efficiency, working capital optimization, and M&A advisory.</p>
+        </div>
+
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="450">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-user-shield"></i></div>
+          <h3 class="card-title" style="font-size:1.25rem;">Leadership Advisory</h3>
+          <p class="card-description" style="font-size:0.875rem;">C-suite succession planning, executive board coaching, and crisis transformation advisory.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 07. THE DIFFERENCE WE BRING -->
+  <section class="section-padding bg-surface" id="difference">
+    <div class="container">
+      <div class="solutions-wrapper" style="align-items:center; gap:60px;">
+        <div data-aos="fade-right">
+          <span class="section-subtitle"><i class="fa-solid fa-bolt"></i> 07. THE DIFFERENCE WE BRING</span>
+          <h2 class="section-title">Insight Is Valuable. Impact Is Everything.</h2>
+          <p style="color:var(--text-main); font-size:1.1rem; font-weight:600; line-height:1.7; margin-bottom:16px;">
+            A premium consulting firm should not stop at recommendations. We combine analytical thinking with practical execution to help leadership teams make confident decisions and create measurable progress.
+          </p>
+          
+          <div class="diff-table">
+            <div class="diff-row" style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:12px;">
+              <div class="diff-cell glass-card"><i class="fa-solid fa-xmark text-dim"></i> Traditional Advisory: Static binders & high-level slides</div>
+              <div class="diff-cell glass-card highlight" style="border-color:var(--border-active);"><i class="fa-solid fa-check text-gold"></i> Stratum Advantage: Embedded execution & live digital roadmaps</div>
+            </div>
+            <div class="diff-row" style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:12px;">
+              <div class="diff-cell glass-card"><i class="fa-solid fa-xmark text-dim"></i> Traditional Advisory: Isolated theoretical frameworks</div>
+              <div class="diff-cell glass-card highlight" style="border-color:var(--border-active);"><i class="fa-solid fa-check text-gold"></i> Stratum Advantage: Empirical data audits & financial stress-testing</div>
+            </div>
+            <div class="diff-row" style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+              <div class="diff-cell glass-card"><i class="fa-solid fa-xmark text-dim"></i> Traditional Advisory: Hand-off upon report completion</div>
+              <div class="diff-cell glass-card highlight" style="border-color:var(--border-active);"><i class="fa-solid fa-check text-gold"></i> Stratum Advantage: Accountable performance metrics & shared success</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card" data-aos="fade-left" style="padding:14px; border-radius:var(--radius-lg);">
+          <img src="assets/images/about_difference.webp" alt="Stratum Data & Financial Analytics Architecture" style="width:100%; border-radius:var(--radius-md); object-fit:cover; height:420px; box-shadow:var(--shadow-card);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08. LEADERSHIP PERSPECTIVE -->
+  <section class="section-padding" id="leadership-perspective">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle"><i class="fa-solid fa-user-tie"></i> 08. LEADERSHIP PERSPECTIVE</span>
+        <h2 class="section-title">Experienced Thinking for Complex Decisions</h2>
+        <p class="section-description">
+          Strategic transformation begins with informed leadership. We work closely with executives and decision-makers to challenge assumptions, identify opportunities, and create practical pathways toward sustainable growth.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-img-wrapper"><img src="assets/images/leader_1.webp" alt="Arthur Vance" class="team-img"></div>
+          <div class="team-info">
+            <h4 class="team-name">Arthur Vance</h4>
+            <div class="team-role">Managing Partner & Founder</div>
+            <p style="font-size:0.825rem; color:var(--text-muted); margin-bottom:12px;">Former McKinsey partner leading 20+ years of enterprise strategy and M&A advisory.</p>
+            <div class="team-socials">
+              <a href="404.html" class="team-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="404.html" class="team-social-link"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-card glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-img-wrapper"><img src="assets/images/leader_2.webp" alt="Elena Rostova" class="team-img"></div>
+          <div class="team-info">
+            <h4 class="team-name">Elena Rostova</h4>
+            <div class="team-role">Head of Digital Strategy</div>
+            <p style="font-size:0.825rem; color:var(--text-muted); margin-bottom:12px;">Ex-Tech CTO architecting enterprise AI, cloud scalability, and digital automation.</p>
+            <div class="team-socials">
+              <a href="404.html" class="team-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="404.html" class="team-social-link"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-card glass-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="team-img-wrapper"><img src="assets/images/leader_3.webp" alt="Marcus Sterling" class="team-img"></div>
+          <div class="team-info">
+            <h4 class="team-name">Marcus Sterling</h4>
+            <div class="team-role">Principal, Financial Advisory</div>
+            <p style="font-size:0.825rem; color:var(--text-muted); margin-bottom:12px;">Wall Street financial strategist specializing in capital allocation and margin growth.</p>
+            <div class="team-socials">
+              <a href="404.html" class="team-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="404.html" class="team-social-link"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-card glass-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="team-img-wrapper"><img src="assets/images/leader_4.webp" alt="Sophia Lin" class="team-img"></div>
+          <div class="team-info">
+            <h4 class="team-name">Sophia Lin</h4>
+            <div class="team-role">Head of Operations Practice</div>
+            <p style="font-size:0.825rem; color:var(--text-muted); margin-bottom:12px;">Global supply chain authority and lean manufacturing process engineer.</p>
+            <div class="team-socials">
+              <a href="404.html" class="team-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="404.html" class="team-social-link"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09. OUR METHODOLOGY -->
+  <section class="section-padding bg-surface" id="methodology">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle"><i class="fa-solid fa-diagram-next"></i> 09. OUR METHODOLOGY</span>
+        <h2 class="section-title">A Framework Designed for Meaningful Transformation</h2>
+        <p class="section-description">
+          A structured methodology that connects business intelligence, strategic planning, execution, and continuous improvement.
+        </p>
+      </div>
+
+      <!-- METHODOLOGY FLOW BANNER -->
+      <div class="methodology-flow" data-aos="zoom-in">
+        <div class="flow-step-node"><i class="fa-solid fa-magnifying-glass"></i> Discover</div>
+        <i class="fa-solid fa-arrow-right flow-arrow"></i>
+        <div class="flow-step-node"><i class="fa-solid fa-chart-pie"></i> Analyze</div>
+        <i class="fa-solid fa-arrow-right flow-arrow"></i>
+        <div class="flow-step-node"><i class="fa-solid fa-bullseye"></i> Define</div>
+        <i class="fa-solid fa-arrow-right flow-arrow"></i>
+        <div class="flow-step-node"><i class="fa-solid fa-gears"></i> Transform</div>
+        <i class="fa-solid fa-arrow-right flow-arrow"></i>
+        <div class="flow-step-node"><i class="fa-solid fa-arrow-up-right-dots"></i> Scale</div>
+      </div>
+
+      <div class="expertise-grid" style="grid-template-columns: repeat(5, 1fr); gap:16px;">
+        <div class="card-unique glass-card" style="padding:24px 18px;" data-aos="fade-up" data-aos-delay="100">
+          <div class="trans-tag">PHASE 01</div>
+          <h4 style="font-size:1.1rem; margin:8px 0;">Discover</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Data mining, C-suite interviews, and comprehensive business asset auditing.</p>
+        </div>
+
+        <div class="card-unique glass-card" style="padding:24px 18px;" data-aos="fade-up" data-aos-delay="200">
+          <div class="trans-tag">PHASE 02</div>
+          <h4 style="font-size:1.1rem; margin:8px 0;">Analyze</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Quantitative modeling, competitor bench-marking, and root cause diagnosis.</p>
+        </div>
+
+        <div class="card-unique glass-card" style="padding:24px 18px;" data-aos="fade-up" data-aos-delay="300">
+          <div class="trans-tag">PHASE 03</div>
+          <h4 style="font-size:1.1rem; margin:8px 0;">Define</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Architecting strategic target state, governance structures, and KPI metrics.</p>
+        </div>
+
+        <div class="card-unique glass-card" style="padding:24px 18px;" data-aos="fade-up" data-aos-delay="400">
+          <div class="trans-tag">PHASE 04</div>
+          <h4 style="font-size:1.1rem; margin:8px 0;">Transform</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Cross-functional deployment, change management, and operational rollout.</p>
+        </div>
+
+        <div class="card-unique glass-card" style="padding:24px 18px;" data-aos="fade-up" data-aos-delay="500">
+          <div class="trans-tag">PHASE 05</div>
+          <h4 style="font-size:1.1rem; margin:8px 0;">Scale</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Continuous value tracking, capability building, and global expansion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. OUR IMPACT -->
+  <section class="section-padding" id="our-impact">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle"><i class="fa-solid fa-chart-column"></i> 10. OUR IMPACT</span>
+        <h2 class="section-title">Creating Value That Extends Beyond the Engagement</h2>
+        <p class="section-description">
+          We evaluate our success by the durable value generated for our clients, their stakeholders, and the markets they lead.
+        </p>
+      </div>
+
+      <div class="expertise-grid" style="grid-template-columns: repeat(4, 1fr); gap:24px;">
+        
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <h3 class="card-title" style="font-size:1.25rem;">Business Growth</h3>
+          <p class="card-description" style="font-size:0.9rem;">Identifying new market opportunities, revenue acceleration channels, and scalable growth models.</p>
+        </div>
+
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-sliders"></i></div>
+          <h3 class="card-title" style="font-size:1.25rem;">Operational Performance</h3>
+          <p class="card-description" style="font-size:0.9rem;">Streamlining workflows, optimizing cost structures, and enhancing overall organizational effectiveness.</p>
+        </div>
+
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-bullseye"></i></div>
+          <h3 class="card-title" style="font-size:1.25rem;">Strategic Clarity</h3>
+          <p class="card-description" style="font-size:0.9rem;">Empowering leadership teams to make better-informed, confident decisions under market uncertainty.</p>
+        </div>
+
+        <div class="card-unique glass-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="card-icon-wrapper"><i class="fa-solid fa-infinity"></i></div>
+          <h3 class="card-title" style="font-size:1.25rem;">Long-Term Value</h3>
+          <p class="card-description" style="font-size:0.9rem;">Building internal capabilities and governance frameworks that continue delivering value long after our engagement.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. OUR PARTNERSHIP MODEL -->
+  <section class="section-padding bg-surface" id="partnership-model">
+    <div class="container">
+      <div class="solutions-wrapper" style="align-items:center; gap:60px;">
+        <div class="glass-card" data-aos="fade-right" style="padding:14px; border-radius:var(--radius-lg);">
+          <img src="assets/images/about_partnership.webp" alt="Stratum Executive Partnership & Advisory" style="width:100%; border-radius:var(--radius-md); object-fit:cover; height:420px; box-shadow:var(--shadow-card);">
+        </div>
+
+        <div data-aos="fade-left">
+          <span class="section-subtitle"><i class="fa-solid fa-handshake"></i> 11. OUR PARTNERSHIP MODEL</span>
+          <h2 class="section-title">Your Challenges. Our Collective Expertise.</h2>
+          <p style="color:var(--text-main); font-size:1.1rem; font-weight:600; line-height:1.7; margin-bottom:18px;">
+            We believe the strongest consulting relationships are built on collaboration. Our teams work alongside yours to understand the business from the inside, align stakeholders, and create solutions that can be implemented with confidence.
+          </p>
+          <ul class="trans-list" style="margin-top:20px;">
+            <li class="trans-list-item" style="font-size:1rem; margin-bottom:8px;"><i class="fa-solid fa-circle-check text-gold"></i> <strong>Co-Creation:</strong> Developing solutions with internal talent to ensure rapid adoption.</li>
+            <li class="trans-list-item" style="font-size:1rem; margin-bottom:8px;"><i class="fa-solid fa-circle-check text-gold"></i> <strong>Embedded Advisory:</strong> Senior advisors physically or virtually integrated into core teams.</li>
+            <li class="trans-list-item" style="font-size:1rem; margin-bottom:8px;"><i class="fa-solid fa-circle-check text-gold"></i> <strong>Knowledge Transfer:</strong> Upskilling your leadership so gains persist indefinitely.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. WHY ORGANIZATIONS CHOOSE US -->
+  <section class="section-padding" id="why-choose-us">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle"><i class="fa-solid fa-award"></i> 12. WHY ORGANIZATIONS CHOOSE US</span>
+        <h2 class="section-title">A More Intelligent Way to Move Forward</h2>
+        <p class="section-description">
+          Six distinct characteristics that make Stratum Consulting the advisor of choice for forward-thinking organizations.
+        </p>
+      </div>
+
+      <div class="why-us-grid" style="grid-template-columns: repeat(3, 1fr); gap:24px;">
+        
+        <div class="pillar-card glass-card" style="text-align:left; padding:32px 24px;" data-aos="fade-up" data-aos-delay="100">
+          <div class="pillar-icon"><i class="fa-solid fa-user-gear"></i></div>
+          <h3 class="pillar-title" style="font-size:1.2rem;">Executive-Level Strategic Perspective</h3>
+          <p class="pillar-desc">Direct hands-on involvement from senior managing partners with proven executive track records.</p>
+        </div>
+
+        <div class="pillar-card glass-card" style="text-align:left; padding:32px 24px;" data-aos="fade-up" data-aos-delay="200">
+          <div class="pillar-icon"><i class="fa-solid fa-database"></i></div>
+          <h3 class="pillar-title" style="font-size:1.2rem;">Data-Informed Decision Making</h3>
+          <p class="pillar-desc">Grounded in empirical quantitative analytics and stress-tested financial models rather than subjective opinion.</p>
+        </div>
+
+        <div class="pillar-card glass-card" style="text-align:left; padding:32px 24px;" data-aos="fade-up" data-aos-delay="300">
+          <div class="pillar-icon"><i class="fa-solid fa-sliders"></i></div>
+          <h3 class="pillar-title" style="font-size:1.2rem;">Tailored Consulting Solutions</h3>
+          <p class="pillar-desc">Bespoke strategies customized precisely to your unique corporate structure, industry, and culture.</p>
+        </div>
+
+        <div class="pillar-card glass-card" style="text-align:left; padding:32px 24px;" data-aos="fade-up" data-aos-delay="400">
+          <div class="pillar-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <h3 class="pillar-title" style="font-size:1.2rem;">Cross-Functional Expertise</h3>
+          <p class="pillar-desc">Seamless integration across strategy, finance, technology, operations, and leadership advisory.</p>
+        </div>
+
+        <div class="pillar-card glass-card" style="text-align:left; padding:32px 24px;" data-aos="fade-up" data-aos-delay="500">
+          <div class="pillar-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <h3 class="pillar-title" style="font-size:1.2rem;">Practical Implementation</h3>
+          <p class="pillar-desc">Actionable execution blueprints designed for immediate deployment by internal organizational teams.</p>
+        </div>
+
+        <div class="pillar-card glass-card" style="text-align:left; padding:32px 24px;" data-aos="fade-up" data-aos-delay="600">
+          <div class="pillar-icon"><i class="fa-solid fa-handshake-simple"></i></div>
+          <h3 class="pillar-title" style="font-size:1.2rem;">Long-Term Partnership Mindset</h3>
+          <p class="pillar-desc">Unwavering dedication to client success, value creation, and ongoing strategic advisory support.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. VISION & MISSION -->
+  <section class="section-padding bg-surface" id="vision-mission">
+    <div class="container">
+      <div class="vision-mission-card" style="background-image: url('assets/images/about_vision_mission.webp');" data-aos="zoom-in">
+        <div class="vision-mission-overlay"></div>
+        <div class="vision-mission-content">
+          <span class="section-subtitle" style="margin-bottom:20px;"><i class="fa-solid fa-compass-drafting"></i> 13. VISION & MISSION</span>
+          <h2 style="font-size:2.8rem; margin-bottom:36px; color:#ffffff;">Guiding Purpose. Unlocking Global Potential.</h2>
+          
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:40px;">
+            <div class="glass-card" style="padding:36px; background:rgba(7, 11, 20, 0.85); border-color:var(--border-active);">
+              <div style="width:48px; height:48px; border-radius:50%; background:rgba(229, 160, 13, 0.2); color:var(--accent-gold); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:16px;">
+                <i class="fa-solid fa-eye"></i>
+              </div>
+              <h3 style="font-size:1.6rem; color:var(--accent-gold); margin-bottom:12px;">Our Vision</h3>
+              <p style="color:var(--text-main); font-size:1.1rem; line-height:1.7;">
+                "To help organizations build stronger, smarter, and more adaptable businesses for a constantly changing world."
+              </p>
+            </div>
+
+            <div class="glass-card" style="padding:36px; background:rgba(7, 11, 20, 0.85); border-color:var(--border-active);">
+              <div style="width:48px; height:48px; border-radius:50%; background:rgba(229, 160, 13, 0.2); color:var(--accent-gold); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:16px;">
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <h3 style="font-size:1.6rem; color:var(--accent-gold); margin-bottom:12px;">Our Mission</h3>
+              <p style="color:var(--text-main); font-size:1.1rem; line-height:1.7;">
+                "To transform complex business challenges into clear strategies, actionable solutions, and sustainable results."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. CLOSING CTA -->
+  <section class="section-padding final-cta-section" id="closing-cta">
+    <div class="container">
+      <div class="cta-box glass-panel" data-aos="zoom-in" style="padding:80px 40px;">
+        <span class="section-subtitle" style="margin-bottom:16px;"><i class="fa-solid fa-comments"></i> 14. START YOUR TRANSFORMATION</span>
+        <h2 class="cta-title" style="font-size:3.2rem;">Ready to Turn Complexity Into Opportunity?</h2>
+        <p class="cta-desc" style="font-size:1.25rem; max-width:700px; margin-bottom:40px;">
+          Let’s explore the strategic possibilities for your organization. Contact our senior leadership team to schedule a confidential advisory consultation.
+        </p>
+        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+          <a href="404.html" class="btn btn-primary" style="font-size:1.05rem; padding:16px 36px;">
+            Start a Conversation
+            <span class="btn-icon-circle"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+          <a href="404.html" class="btn btn-secondary" style="font-size:1.05rem; padding:16px 36px;">
+            Explore Our Services <i class="fa-solid fa-briefcase" style="margin-left:6px;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom:16px;">
+            <img src="assets/images/logo_0103.webp" alt="Stratum Consulting Logo" class="brand-logo-img">
+          </a>
+          <p>Stratum Consulting is a premier global management consulting firm delivering strategic growth, operational transformation, and financial advisory for market leaders.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services & Expertise</a>
+            <a href="blog.html">Insights & Blog</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="login.html">Client Portal</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <div class="footer-links">
+            <a href="services.html">Business Strategy</a>
+            <a href="services.html">Digital Transformation</a>
+            <a href="services.html">Operations & Performance</a>
+            <a href="services.html">Financial Strategy</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Global Headquarters</h4>
+          <p style="font-size:0.875rem; margin-bottom:12px;"><i class="fa-solid fa-location-dot text-gold" style="margin-right:8px;"></i> 550 Fifth Avenue, 32nd Floor, New York, NY 10036</p>
+          <p style="font-size:0.875rem;"><i class="fa-solid fa-phone text-gold" style="margin-right:8px;"></i> (000) 123456789</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Stratum Consulting Group LLC. All Rights Reserved.</div>
+        <div style="display:flex; gap:20px;">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

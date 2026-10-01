@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Stratum Consulting</title>
+  <meta name="description" content="Executive Admin Portal for managing strategic inquiries, client access, practice metrics, and corporate advisory operations.">
+  <link rel="icon" type="image/webp" href="assets/images/logo_0103.webp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+      background: var(--bg-dark);
+    }
+    .sidebar {
+      background: var(--bg-surface-elevated);
+      border-right: 1px solid var(--border-light);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .sidebar-menu {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0 0 0;
+    }
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: var(--radius-md);
+      margin-bottom: 8px;
+      transition: var(--transition-fast);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .sidebar-link:hover, .sidebar-link.active {
+      background: rgba(229, 160, 13, 0.15);
+      color: var(--accent-gold);
+      border: 1px solid var(--border-active);
+    }
+    .dashboard-content {
+      padding: 40px;
+      overflow-y: auto;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+    .stat-card {
+      background: rgba(14, 21, 37, 0.8);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 8px 0;
+    }
+    .table-container {
+      background: rgba(14, 21, 37, 0.8);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 35px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.875rem;
+    }
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-glass);
+    }
+    th {
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+    }
+    .badge-status {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .badge-active { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
+    .badge-pending { background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); }
+    @media (max-width: 991px) {
+      .dashboard-layout { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body class="bg-pattern">
+  <!-- MOBILE HEADER BAR WITH HAMBURGER TOGGLE -->
+  <div class="dashboard-mobile-header">
+    <a href="index.html" class="brand-logo">
+      <img src="assets/images/logo_0103.webp" alt="Stratum Consulting Logo" class="brand-logo-img" style="height:36px;">
+    </a>
+    <button class="mobile-toggle dashboard-mobile-toggle" aria-label="Toggle Navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+
+  <div class="dashboard-layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div>
+        <a href="index.html" class="brand-logo" style="margin-bottom:20px; display:inline-block;">
+          <img src="assets/images/logo_0103.webp" alt="Stratum Consulting Logo" class="brand-logo-img" style="height:42px;">
+        </a>
+        <div style="font-size:0.75rem; color:var(--accent-gold); font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:20px;">
+          <i class="fa-solid fa-user-shield"></i> Admin Control Portal
+        </div>
+        <ul class="sidebar-menu">
+          <li><a href="404.html" class="sidebar-link active"><i class="fa-solid fa-chart-line"></i> Analytics Overview</a></li>
+          <li><a href="404.html" class="sidebar-link"><i class="fa-solid fa-users"></i> Client Accounts</a></li>
+          <li><a href="404.html" class="sidebar-link"><i class="fa-solid fa-envelope-open-text"></i> Strategy Inquiries</a></li>
+          <li><a href="404.html" class="sidebar-link"><i class="fa-solid fa-folder-tree"></i> Advisory Projects</a></li>
+          <li><a href="404.html" class="sidebar-link"><i class="fa-solid fa-shield-halved"></i> Security & Audit Log</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <a href="login.html" class="sidebar-link" style="color:#ef4444;"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+      </div>
+    </aside>
+
+    <!-- DASHBOARD CONTENT -->
+    <main class="dashboard-content">
+      <!-- Top Bar -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:32px;">
+        <div>
+          <h1 style="font-size:2rem; margin-bottom:4px;">Executive Admin Overview</h1>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Welcome back, <strong style="color:var(--accent-gold);">System Administrator</strong>. Platform operational status: <span class="badge-status badge-active">100% Online</span></p>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span style="font-size:0.8rem; color:var(--text-dim);"><i class="fa-solid fa-briefcase text-gold"></i> Active Engagements</span>
+          <div class="stat-number">48</div>
+          <span style="font-size:0.75rem; color:#4ade80;"><i class="fa-solid fa-arrow-up"></i> +14% vs last month</span>
+        </div>
+
+        <div class="stat-card">
+          <span style="font-size:0.8rem; color:var(--text-dim);"><i class="fa-solid fa-envelope text-gold"></i> Client Inquiries</span>
+          <div class="stat-number">124</div>
+          <span style="font-size:0.75rem; color:#4ade80;"><i class="fa-solid fa-arrow-up"></i> 8 new today</span>
+        </div>
+
+        <div class="stat-card">
+          <span style="font-size:0.8rem; color:var(--text-dim);"><i class="fa-solid fa-users text-gold"></i> Corporate Clients</span>
+          <div class="stat-number">312</div>
+          <span style="font-size:0.75rem; color:var(--text-muted);">98.4% Retention</span>
+        </div>
+
+        <div class="stat-card">
+          <span style="font-size:0.8rem; color:var(--text-dim);"><i class="fa-solid fa-vault text-gold"></i> Executive Reports</span>
+          <div class="stat-number">86</div>
+          <span style="font-size:0.75rem; color:var(--accent-gold);">Secure Delivery</span>
+        </div>
+      </div>
+
+      <!-- Strategic Inquiries Table -->
+      <div class="table-container">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+          <h3 style="font-size:1.2rem;"><i class="fa-solid fa-list-check text-gold"></i> Recent Strategic Inquiries</h3>
+          <span style="font-size:0.8rem; color:var(--text-dim);">Live Sync Active</span>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Client Name</th>
+              <th>Company</th>
+              <th>Area of Interest</th>
+              <th>Status</th>
+              <th>Date Received</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Arthur Vance</strong></td>
+              <td>Nexus Capital Global</td>
+              <td>Digital Transformation</td>
+              <td><span class="badge-status badge-active">Assigned</span></td>
+              <td>Oct 01, 2026</td>
+              <td><a href="404.html" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;">View Profile</a></td>
+            </tr>
+            <tr>
+              <td><strong>Elena Rostova</strong></td>
+              <td>Vanguard Therapeutics</td>
+              <td>Business Strategy</td>
+              <td><span class="badge-status badge-pending">Review Pending</span></td>
+              <td>Sep 30, 2026</td>
+              <td><a href="404.html" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;">Assign Partner</a></td>
+            </tr>
+            <tr>
+              <td><strong>Marcus Thorne</strong></td>
+              <td>AeroTech Systems</td>
+              <td>Performance Improvement</td>
+              <td><span class="badge-status badge-active">In Progress</span></td>
+              <td>Sep 28, 2026</td>
+              <td><a href="404.html" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;">View Briefing</a></td>
+            </tr>
+            <tr>
+              <td><strong>Sophia Sterling</strong></td>
+              <td>Global Logistics Corp</td>
+              <td>Market Intelligence</td>
+              <td><span class="badge-status badge-active">Completed</span></td>
+              <td>Sep 25, 2026</td>
+              <td><a href="404.html" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;">Download NDA</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
