@@ -1,5 +1,5 @@
 /* ==========================================================================
-   STRATUM CONSULTING - ADVANCED GSAP & INTERACTIVE ENGINE
+   STACKLY CONSULTING - ADVANCED GSAP & INTERACTIVE ENGINE
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
